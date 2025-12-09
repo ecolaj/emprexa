@@ -604,7 +604,7 @@ const [toast, setToast] = useState({
       const username = profileData?.username ?? user.email.split('@')[0];
       const avatar_url = profileData?.avatar_url ?? '';
 
-      const userWithRealData: User = {
+      const userWithRealData = {
         ...user,
         username,
         plan_type,
