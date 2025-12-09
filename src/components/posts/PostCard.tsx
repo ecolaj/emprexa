@@ -155,8 +155,8 @@ const DeleteConfirmationModal: React.FC<DeleteConfirmationModalProps> = ({
 };
 
 interface PostCardProps {
-  post: Post;
-  currentUser: User | null;
+  post;
+  currentUser;
   onShowProfile: (userId: string) => void;
   setImageModal: (modal: any) => void;
   onExpandComments: (postId: string) => void;
@@ -165,7 +165,7 @@ interface PostCardProps {
   onPostLike?: (postId: string, liked: boolean) => void;
 }
 
-export const PostCard = React.memo<PostCardProps>(({
+export const PostCard = React.memo(({
   post,
   currentUser,
   onShowProfile,

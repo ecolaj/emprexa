@@ -9,10 +9,10 @@ import { processPostHashtags } from '../../services/textProcessingService';
 interface CreatePostModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onPostCreated: (post: Post) => void;
+  onPostCreated: (post) => void;
 }
 
-export const CreatePostModal: React.FC<CreatePostModalProps> = ({
+export const CreatePostModal: React.FC = ({
   isOpen,
   onClose,
   onPostCreated,
@@ -113,7 +113,7 @@ export const CreatePostModal: React.FC<CreatePostModalProps> = ({
   const removeVideoLink = (index: number) =>
     setVideoLinks((prev) => prev.filter((_, i) => i !== index));
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       setLoading(true);
       setError('');
@@ -199,7 +199,7 @@ export const CreatePostModal: React.FC<CreatePostModalProps> = ({
             setBeneficiariesWomen('');
             setPartners('');
             setProjectStatus('planning');
-    } catch (error: any) {
+    } catch (error) {
       setError(error.message);
     } finally {
       setLoading(false);

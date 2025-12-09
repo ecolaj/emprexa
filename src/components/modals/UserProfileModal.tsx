@@ -44,7 +44,7 @@ const uploadAvatar = async (file: File, userId: string): Promise<string> => {
     console.log('✅ Avatar subido exitosamente:', publicUrl);
     return publicUrl;
 
-  } catch (error: any) {
+  } catch (error) {
     console.error('❌ Error subiendo avatar:', error);
     throw new Error('No se pudo subir la imagen: ' + error.message);
   }
@@ -123,7 +123,7 @@ const EditProfileFormContent = ({ userProfile, onClose, onProfileUpdate }: any) 
         alert('✅ Perfil actualizado correctamente');
       }, 500);
       
-    } catch (error: any) {
+    } catch (error) {
       console.error('❌ Error completo al actualizar perfil:', error);
       alert(`Error al actualizar el perfil: ${error.message}`);
     } finally {
@@ -270,7 +270,7 @@ const EditProfileFormContent = ({ userProfile, onClose, onProfileUpdate }: any) 
                     setSaving(true);
                     const avatarUrl = await uploadAvatar(file, userProfile.id);
                     setFormData(prev => ({ ...prev, avatar_url: avatarUrl }));
-                  } catch (error: any) {
+                  } catch (error) {
                     alert('Error al subir la imagen: ' + error.message);
                   } finally {
                     setSaving(false);
@@ -392,7 +392,7 @@ const EditProfileFormContent = ({ userProfile, onClose, onProfileUpdate }: any) 
   );
 };
 
-export const UserProfileModal: React.FC<UserProfileModalProps> = (props) => {
+export const UserProfileModal: React.FC = (props) => {
   const { isOpen, onClose, userId, currentUserId, onProfileUpdate } = props;
   const [userProfile, setUserProfile] = useState<any>(null);
   const [loading, setLoading] = useState(true);

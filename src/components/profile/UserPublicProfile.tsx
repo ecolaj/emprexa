@@ -13,10 +13,10 @@ interface UserPublicProps {
   currentUser: User | null;
   setImageModal: React.Dispatch<React.SetStateAction<ImageModalState>>;
   onShowProfile: (userId: string) => void;
-  onPostLike?: (postId: string, liked: boolean) => void; // 🆕 NUEVO
+  onPostLike // 🆕 NUEVO
 }
 
-export const UserPublicProfile: React.FC<UserPublicProps> = ({
+export const UserPublicProfile: React.FC = ({
   username,
   currentUser,
   setImageModal,
