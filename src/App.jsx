@@ -105,7 +105,7 @@ function AppContent() {
   // ==============================================
   
   // Estado de posts y carga
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [usarDatosReales, setUsarDatosReales] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
@@ -118,11 +118,7 @@ function AppContent() {
   const [showAuthModal, setShowAuthModal] = useState(false);
 
   // Estado de toast notifications
-  const [toast, setToast] = useState<{
-    isVisible: boolean;
-    message: string;
-    type: 'success' | 'error' | 'info';
-  }>({
+const [toast, setToast] = useState({
     isVisible: false,
     message: '',
     type: 'success'
